@@ -5,3 +5,13 @@
 *{
     font-family: 'Alkatra', cursive;
 }
+
+.nav-link{
+    letter-spacing: 1.5px;
+}
+
+.active{
+    background: #e23c00;
+    border-radius: 15px;
+    color: #dddddd;
+}
