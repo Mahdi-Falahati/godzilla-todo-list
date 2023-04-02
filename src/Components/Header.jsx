@@ -14,7 +14,6 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { ListItemText } from "@mui/material";
-import Container from "@mui/material/Container";
 
 import { Link } from "react-router-dom";
 
@@ -83,7 +82,7 @@ function Header(props) {
   return (
     <Box sx={{ display: "flex", flexDirection: "row-reverse" }}>
       <CssBaseline />
-      <AppBar component="nav" sx={{ background: "#FBEAFF" }}>
+      <AppBar component="nav" sx={{ background: "#fff" }}>
         <Toolbar>
           <IconButton
             color="inherit"
