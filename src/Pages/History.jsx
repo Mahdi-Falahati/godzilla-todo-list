@@ -1,5 +1,11 @@
 export default function History() {
   return (
-    <div>History</div>
-  )
+    <div>
+      <p>History</p>
+      <p>History</p>
+      <p>History</p>
+      <p>History</p>
+      <p>History</p>
+    </div>
+  );
 }
