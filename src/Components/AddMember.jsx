@@ -1,6 +1,5 @@
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
-import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 
 import PopUpForm from "./PopUpForm";
 import { useReducer, useState } from "react";
@@ -31,7 +30,7 @@ export default function AddMember() {
   };
 
   const addSkill = () => {
-    dispatch({ type: types.skill, value:"" });
+    dispatch({ type: types.skill, value: "" });
     setSkills((prevState) => [
       ...prevState,
       { id: uuid(), value: state.skill },
@@ -40,8 +39,7 @@ export default function AddMember() {
 
   const deleteSkill = (e) => {
     e.preventDefault();
-    const GetID = e.target.parentElement.parentElement.id;
-    const result = skills?.filter((item) => item.id !== GetID);
+    const result = skills.filter((item) => item.id !== e.target.id);
     setSkills(result);
   };
 
@@ -150,7 +148,6 @@ export default function AddMember() {
               return (
                 <Box
                   key={item.id}
-                  id={item.id}
                   sx={{
                     display: "flex",
                     alignItems: "center",
@@ -162,18 +159,23 @@ export default function AddMember() {
                   }}
                 >
                   <button
+                    id={item.id}
                     onClick={deleteSkill}
                     style={{
-                      color: "#fff",
-                      border: "none",
+                      color:"red",
+                      fontWeight:"bold",
+                      borderRadius: "50%",
+                      width:"22px",
+                      textAlign:"ceneter",
+                      border: "1px #fff solid",
                       outline: "none",
                       cursor: "pointer",
-                      background: "transparent",
+                      background: "#FFF",
                       borderRight: "1px solid #fff",
                       marginRight: "5px",
                     }}
                   >
-                    <DeleteSweepIcon />
+                    X
                   </button>
                   {item.value}
                 </Box>
