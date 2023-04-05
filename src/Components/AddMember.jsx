@@ -1,4 +1,11 @@
-import { Box, Button, InputAdornment, TextField } from "@mui/material";
+import {
+  Box,
+  Button,
+  Checkbox,
+  InputAdornment,
+  TextField,
+  Typography,
+} from "@mui/material";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 
 import PopUpForm from "./PopUpForm";
@@ -155,18 +162,18 @@ export default function AddMember() {
                     background: "orangered",
                     color: "#fff",
                     borderRadius: "10px",
-                    marginTop: "10px",
+                    margin: "5px",
                   }}
                 >
                   <button
                     id={item.id}
                     onClick={deleteSkill}
                     style={{
-                      color:"red",
-                      fontWeight:"bold",
+                      color: "red",
+                      fontWeight: "bold",
                       borderRadius: "50%",
-                      width:"22px",
-                      textAlign:"ceneter",
+                      width: "22px",
+                      textAlign: "ceneter",
                       border: "1px #fff solid",
                       outline: "none",
                       cursor: "pointer",
@@ -181,6 +188,66 @@ export default function AddMember() {
                 </Box>
               );
             })}
+          </Box>
+
+          <Box sx={{ width: { xs: "28ch", sm: "40ch" } }}>
+            <Typography
+              sx={{
+                textAlign: "left",
+              }}
+              variant="h6"
+            >
+              Select Languages :
+            </Typography>
+            <Box
+              sx={{
+                display: "flex",
+                flexWrap: "wrap",
+                justifyContent: "space-around",
+              }}
+            >
+              <div>
+                <Checkbox
+                  defaultChecked
+                  id="english"
+                  value="English"
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+                />
+                <label htmlFor="english">English</label>
+              </div>
+              <div>
+                <Checkbox
+                  id="persion"
+                  value="Persion"
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+                />
+                <label htmlFor="persion">Persion</label>
+              </div>
+              <div>
+                <Checkbox
+                  id="arabic"
+                  value="Arabic"
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+                />
+                <label htmlFor="arabic">Arabic</label>
+              </div>
+              <div>
+                <Checkbox
+                  id="germany"
+                  value="Germany"
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+                />
+                <label htmlFor="germany">Germany</label>
+              </div>
+              <div>
+                <Checkbox
+                  id="turkish"
+                  value="Turkish"
+                  sx={{ "& .MuiSvgIcon-root": { fontSize: 28 } }}
+                />
+                <label htmlFor="turkish">Turkish</label>
+              </div>
+            </Box>
           </Box>
 
           <Button
@@ -213,7 +280,7 @@ const types = {
 
 const initialState = {
   name: "",
-  age: 15,
+  age: 18,
   github: "",
   linkedin: "",
   skill: "",
