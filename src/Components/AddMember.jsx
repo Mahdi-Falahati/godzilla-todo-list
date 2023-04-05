@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 
 import PopUpForm from "./PopUpForm";
 import { useReducer, useState } from "react";
@@ -45,7 +46,6 @@ export default function AddMember() {
   };
 
   const deleteSkill = (e) => {
-    e.preventDefault();
     const result = skills.filter((item) => item.id !== e.target.id);
     setSkills(result);
   };
@@ -158,33 +158,25 @@ export default function AddMember() {
                   sx={{
                     display: "flex",
                     alignItems: "center",
-                    padding: "3px 7px",
-                    background: "orangered",
                     color: "#fff",
                     borderRadius: "10px",
                     margin: "5px",
                   }}
                 >
-                  <button
+                  <Button
+                    size="small"
                     id={item.id}
                     onClick={deleteSkill}
-                    style={{
-                      color: "red",
+                    sx={{
                       fontWeight: "bold",
-                      borderRadius: "50%",
-                      width: "22px",
-                      textAlign: "ceneter",
-                      border: "1px #fff solid",
-                      outline: "none",
-                      cursor: "pointer",
-                      background: "#FFF",
-                      borderRight: "1px solid #fff",
-                      marginRight: "5px",
                     }}
+                    variant="contained"
+                    type="button"
+                    color="error"
+                    startIcon={<DeleteSweepIcon id={item.id} />}
                   >
-                    X
-                  </button>
-                  {item.value}
+                    {item.value}
+                  </Button>
                 </Box>
               );
             })}
