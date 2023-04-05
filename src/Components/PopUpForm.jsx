@@ -70,14 +70,6 @@ import {
               <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
                 Add Member
               </Typography>
-              <Button
-                endIcon={<HowToRegIcon />}
-                autoFocus
-                color="inherit"
-                onClick={saveCloseHandler}
-              >
-                Save
-              </Button>
             </Toolbar>
           </AppBar>
           <Box sx={{ marginTop: "10px", height: "100%" }}>{children}</Box>
