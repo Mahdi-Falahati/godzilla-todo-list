@@ -4,6 +4,7 @@ import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 
 import PopUpForm from "./PopUpForm";
 import { useReducer, useState } from "react";
+import { v4 as uuid } from "uuid";
 
 export default function AddMember() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -30,7 +31,18 @@ export default function AddMember() {
   };
 
   const addSkill = () => {
-    setSkills((prevState) => [...prevState, state.skill]);
+    dispatch({ type: types.skill, value:"" });
+    setSkills((prevState) => [
+      ...prevState,
+      { id: uuid(), value: state.skill },
+    ]);
+  };
+
+  const deleteSkill = (e) => {
+    e.preventDefault();
+    const GetID = e.target.parentElement.parentElement.id;
+    const result = skills?.filter((item) => item.id !== GetID);
+    setSkills(result);
   };
 
   return (
@@ -137,30 +149,33 @@ export default function AddMember() {
             {skills?.map((item) => {
               return (
                 <Box
+                  key={item.id}
+                  id={item.id}
                   sx={{
                     display: "flex",
                     alignItems: "center",
                     padding: "3px 7px",
-                    background:"orangered",
-                    color:"#fff",
-                    borderRadius:"10px",
-                    marginTop:"10px"
+                    background: "orangered",
+                    color: "#fff",
+                    borderRadius: "10px",
+                    marginTop: "10px",
                   }}
                 >
                   <button
+                    onClick={deleteSkill}
                     style={{
-                      color:"#fff",
+                      color: "#fff",
                       border: "none",
                       outline: "none",
                       cursor: "pointer",
                       background: "transparent",
-                      borderRight:"1px solid #fff",
-                      marginRight:"5px"
+                      borderRight: "1px solid #fff",
+                      marginRight: "5px",
                     }}
                   >
                     <DeleteSweepIcon />
                   </button>
-                  {item}
+                  {item.value}
                 </Box>
               );
             })}
