@@ -1,11 +1,13 @@
 import { Box, Button, InputAdornment, TextField } from "@mui/material";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
+import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
 
 import PopUpForm from "./PopUpForm";
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 export default function AddMember() {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [skills, setSkills] = useState([]);
 
   const handelName = (e) => {
     dispatch({ type: types.name, value: e.target.value });
@@ -21,6 +23,14 @@ export default function AddMember() {
 
   const handelLinkedinAddres = (e) => {
     dispatch({ type: types.linkedin, value: e.target.value });
+  };
+
+  const handelSkills = (e) => {
+    dispatch({ type: types.skill, value: e.target.value });
+  };
+
+  const addSkill = () => {
+    setSkills((prevState) => [...prevState, state.skill]);
   };
 
   return (
@@ -94,7 +104,68 @@ export default function AddMember() {
             }}
             variant="standard"
           />
-          
+
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              width: { xs: "28ch", sm: "40ch" },
+            }}
+          >
+            <TextField
+              value={state.skill}
+              onChange={handelSkills}
+              label="Enter Your Skills "
+              id="standard-start-adornment"
+              variant="standard"
+            />
+            <Button variant="contained" onClick={addSkill}>
+              Add
+            </Button>
+          </Box>
+          <Box
+            sx={{
+              width: { xs: "95%", sm: "85%" },
+              margin: "15px 0px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-around",
+              flexWrap: "wrap",
+            }}
+          >
+            {skills?.map((item) => {
+              return (
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    padding: "3px 7px",
+                    background:"orangered",
+                    color:"#fff",
+                    borderRadius:"10px",
+                    marginTop:"10px"
+                  }}
+                >
+                  <button
+                    style={{
+                      color:"#fff",
+                      border: "none",
+                      outline: "none",
+                      cursor: "pointer",
+                      background: "transparent",
+                      borderRight:"1px solid #fff",
+                      marginRight:"5px"
+                    }}
+                  >
+                    <DeleteSweepIcon />
+                  </button>
+                  {item}
+                </Box>
+              );
+            })}
+          </Box>
+
           <Button
             sx={{
               width: { sm: "300px" },
@@ -120,6 +191,7 @@ const types = {
   age: "UPDATE__AGE",
   github: "UPDATE__GITHUB_USERNAE",
   linkedin: "UPDATE__LINKEDIN_USERNAE",
+  skill: "UPDATE__SKILL",
 };
 
 const initialState = {
@@ -127,6 +199,7 @@ const initialState = {
   age: 15,
   github: "",
   linkedin: "",
+  skill: "",
 };
 
 const reducer = (state, action) => {
@@ -139,6 +212,8 @@ const reducer = (state, action) => {
       return { ...state, github: action.value };
     case types.linkedin:
       return { ...state, linkedin: action.value };
+    case types.skill:
+      return { ...state, skill: action.value };
     default:
       break;
   }
