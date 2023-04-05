@@ -10,7 +10,6 @@ import {
   } from "@mui/material";
   import CloseIcon from "@mui/icons-material/Close";
   import GroupAddIcon from "@mui/icons-material/GroupAdd";
-  import HowToRegIcon from "@mui/icons-material/HowToReg";
   
   import { useState, forwardRef } from "react";
   
@@ -27,12 +26,6 @@ import {
   
     const handleClose = () => {
       setOpen(false);
-    };
-  
-    const saveCloseHandler = () => {
-      if (transferCloseData) {
-        setOpen(false);
-      }
     };
   
     return (
