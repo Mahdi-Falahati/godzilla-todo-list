@@ -26,6 +26,8 @@ const LinkStyle = {
   fontWeight: "bold",
   letterSpacing: "1.5px",
   color: "#845EC2",
+  display:"flex",
+  flexItems:"flex-end"
 };
 
 const drawerWidth = 240;
@@ -44,36 +46,36 @@ function Header(props) {
   };
 
   const drawer = (
-      <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-        <Typography variant="h6" sx={{ my: 2, fontFamily: "Alkatra" }}>
-          <Link to="/" style={LinkStyle}>
-            TODO GODZILLA
-          </Link>
-        </Typography>
-        <Divider />
-        <List>
-          {navItems.map((item) => (
-            <ListItem key={item.item} disablePadding>
-              <ListItemButton sx={{ textAlign: "center", color: "#845EC2" }}>
-                {item.icon}
-                <Link
-                  to={item.route}
-                  style={{
-                    textDecoration: "none",
-                    letterSpacing: "1.5px",
-                    width: "100%",
-                    background: "#FEFEDF",
-                    fontWeight: "bold",
-                    borderRadius: "15px",
-                  }}
-                >
-                  <ListItemText primary={item.item} />
-                </Link>
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
+      <Typography variant="h6" sx={{ my: 2, fontFamily: "Alkatra" }}>
+        <Link to="/" style={LinkStyle}>
+          TODO GODZILLA
+        </Link>
+      </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item) => (
+          <ListItem key={item.item} disablePadding>
+            <ListItemButton sx={{ textAlign: "center", color: "#845EC2" }}>
+              {item.icon}
+              <Link
+                to={item.route}
+                style={{
+                  textDecoration: "none",
+                  letterSpacing: "1.5px",
+                  width: "100%",
+                  background: "#FEFEDF",
+                  fontWeight: "bold",
+                  borderRadius: "15px",
+                }}
+              >
+                <ListItemText primary={item.item} />
+              </Link>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
   );
 
   const container =
@@ -112,8 +114,14 @@ function Header(props) {
                 key={item.item}
                 sx={{ color: "#845EC2", margin: "0px 10px" }}
               >
-                <span style={{ margin: "0px 10px 0px 0px" }}>{item.icon}</span>
                 <Link style={LinkStyle} to={item.route}>
+                  <span
+                    style={{
+                      margin: "0px 10px 0px 0px",
+                    }}
+                  >
+                    {item.icon}
+                  </span>
                   {item.item}
                 </Link>
               </Button>
