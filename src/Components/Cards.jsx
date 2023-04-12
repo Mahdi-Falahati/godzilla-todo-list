@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import Card from "./Card";
+import MemberCardInfo from "./MemberCardInfo";
 
 export default function Cards() {
   return (
@@ -33,7 +33,24 @@ export default function Cards() {
           }}
         ></Box>
       </Box>
-      <Card />
+      <Box
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+        }}
+      >
+        <MemberCardInfo
+          name="Mahdi Falahati"
+          age="21"
+          language="English"
+          likedin="mahdi"
+          github="rc_0_1"
+          skills={["react", "python","python","python"]}
+          tasks={["react", "python","python","python"]}
+        />
+      </Box>
     </>
   );
 }
