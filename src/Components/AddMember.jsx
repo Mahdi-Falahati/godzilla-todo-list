@@ -8,6 +8,7 @@ import {
 } from "@mui/material";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import DeleteSweepIcon from "@mui/icons-material/DeleteSweep";
+import AddPhotoAlternateIcon from "@mui/icons-material/AddPhotoAlternate";
 
 import PopUpForm from "./PopUpForm";
 import { useReducer, useState } from "react";
@@ -241,6 +242,24 @@ export default function AddMember() {
               </div>
             </Box>
           </Box>
+
+          <Button
+            variant="contained"
+            component="label"
+            sx={{
+              width: { sm: "300px" },
+              letterSpacing: "1px",
+              height: "35px",
+              marginTop: "15px",
+            }}
+            endIcon={<AddPhotoAlternateIcon />}
+          >
+            Upload Picture
+            <input
+              type="file"
+              hidden
+            />
+          </Button>
 
           <Button
             sx={{

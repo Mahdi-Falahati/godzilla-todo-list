@@ -47,8 +47,8 @@ export default function Cards() {
           language="English"
           likedin="mahdi"
           github="rc_0_1"
-          skills={["react", "python","python","python"]}
-          tasks={["react", "python","python","python"]}
+          skills={["react", "python","Javascript"]}
+          tasks={["react", "python","python"]}
         />
       </Box>
     </>
