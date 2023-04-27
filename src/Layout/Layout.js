@@ -15,7 +15,7 @@ export default function Layout() {
       </header>
       <CssBaseline />
       <Container maxWidth="xl">
-        <main style={{marginTop:"75px"}}>{<Outlet />}</main>
+        <main style={{marginTop:"85px"}}>{<Outlet />}</main>
       </Container>
     </Fragment>
   );
