@@ -1,6 +1,7 @@
 import { Badge, Box, Grid } from "@mui/material";
 import AssignmentIcon from "@mui/icons-material/Assignment";
 import TaskCard from "../Components/TaskCard";
+import AddTask from "../Components/AddTask";
 
 export default function Home() {
   return (
@@ -41,11 +42,11 @@ export default function Home() {
             alignItems: "center",
           }}
         >
-          Home2
+          <AddTask />
         </Grid>
 
         <Grid item xs={12}>
-          <TaskCard/>
+          <TaskCard />
         </Grid>
       </Grid>
     </>
