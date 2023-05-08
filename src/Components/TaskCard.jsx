@@ -97,14 +97,14 @@ export default function TaskCard() {
         }}
       >
         <ButtonGroup aria-label="button group" variant="outlined" size="small">
-          <Button startIcon={<DeleteIcon />} color="error">
+          <Button endIcon={<DeleteIcon />} color="error">
             Delete
           </Button>
-          <Button startIcon={<EditIcon />} color="warning">
+          <Button endIcon={<EditIcon />} color="warning">
             Edit
           </Button>
-          <Button startIcon={<CompleteIcon />} color="success">
-            Complete{" "}
+          <Button endIcon={<CompleteIcon />} color="success">
+            Complete
           </Button>
         </ButtonGroup>
       </Box>
