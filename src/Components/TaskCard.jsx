@@ -10,8 +10,14 @@ import {
   AccordionSummary,
   Avatar,
   AvatarGroup,
+  ButtonGroup,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Button from "@mui/material/Button";
+
+import DeleteIcon from "@mui/icons-material/Delete";
+import CompleteIcon from "@mui/icons-material/Verified";
+import EditIcon from "@mui/icons-material/Edit";
 
 export default function TaskCard() {
   const [expanded, setEcpanded] = useState(false);
@@ -25,7 +31,8 @@ export default function TaskCard() {
       sx={{
         boxShadow: "inset 1px -2px 5px 0px #999",
         borderRadius: "10px",
-        width: "400px",
+        maxWidth: "400px",
+        my: 3,
       }}
     >
       <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -80,6 +87,26 @@ export default function TaskCard() {
             <Avatar alt="Trevor Henderson" src="/static/images/avatar/5.jpg" />
           </AvatarGroup>
         </Box>
+      </Box>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          m: 2,
+        }}
+      >
+        <ButtonGroup aria-label="button group" variant="outlined" size="small">
+          <Button startIcon={<DeleteIcon />} color="error">
+            Delete
+          </Button>
+          <Button startIcon={<EditIcon />} color="warning">
+            Edit
+          </Button>
+          <Button startIcon={<CompleteIcon />} color="success">
+            Complete{" "}
+          </Button>
+        </ButtonGroup>
       </Box>
     </Card>
   );
